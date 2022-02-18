@@ -6,10 +6,7 @@ class Category {
   description: string;
   created_at: Date;
 
-  constructor(name: string, description: string, created_at: Date) {
-    this.created_at = created_at;
-    this.description = description;
-    this.name = name;
+  constructor() {
     if (!this.id) {
       this.id = uuidV4();
     }

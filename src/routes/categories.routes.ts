@@ -8,10 +8,14 @@ const categories: Category[] = [];
 categoriesRoutes.post("/", (req, res) => {
   const { name, description } = req.body;
 
-  const category = new Category(name, description, new Date());
+  const category = new Category();
 
+  Object.assign(category, {
+    name,
+    description,
+    created_at: new Date(),
+  });
   categories.push(category);
-  console.log(categories);
   return res.status(201).send();
 });
 export { categoriesRoutes };
